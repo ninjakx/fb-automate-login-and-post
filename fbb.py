@@ -1,7 +1,7 @@
 import cookielib
 import urllib2
 import mechanize
-
+import facebook
 
 # Browser
 br = mechanize.Browser()
@@ -32,6 +32,17 @@ res = br.submit()
 
 br.geturl()
 
+tokeen=''
+  
+def auto_post():
+    graph = facebook.GraphAPI(access_token=tokeen,version='2.2')
+    post = graph.get_object(id="me")
+    msg=str(input("Enter your message : "))
+    graph.put_object(parent_object='me', connection_name='feed',message=msg)
+
+    
+if __name__ == '__main__':
+    auto_post()
 
 print "Success!\n"
 
