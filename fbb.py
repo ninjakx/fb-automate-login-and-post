@@ -32,10 +32,10 @@ res = br.submit()
 
 br.geturl()
 
-tokeen=''
+token=''
   
 def auto_post():
-    graph = facebook.GraphAPI(access_token=tokeen,version='2.2')
+    graph = facebook.GraphAPI(access_token=token,version='2.2')
     post = graph.get_object(id="me")
     msg=str(input("Enter your message : "))
     graph.put_object(parent_object='me', connection_name='feed',message=msg)
